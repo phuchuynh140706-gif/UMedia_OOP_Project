@@ -1,0 +1,21 @@
+{
+    "nhu_frontend": {
+        "password": "111",
+        "playlist": []
+    },
+    "phucleader": {
+        "password": "123456",
+        "playlist": [
+            "M01",
+            "S02",
+            "V01",
+            "M01"
+        ]
+    },
+    "son_database": {
+        "password": "222",
+        "playlist": [
+            "M02"
+        ]
+    }
+}

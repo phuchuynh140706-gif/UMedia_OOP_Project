@@ -20,13 +20,25 @@ public:
         return (username == inputUser && password == inputPass);
     }
 
+    // Các hàm Getter
     string getUsername() const { return username; }
+    
+    // BẮT BUỘC PHẢI CÓ HÀM NÀY ĐỂ BÊN NGOÀI LẤY DATA ĐEM ĐI LƯU
+    vector<string> getPlaylist() const { return playlist; } 
 
-    // Hàm thêm phim/nhạc vào Playlist cá nhân
-    void addToPlaylist(string mediaId) {
-        // Có thể thêm logic kiểm tra trùng lặp ở đây nếu muốn hoàn hảo hơn
+    // Hàm thêm phim/nhạc vào Playlist (Chỉ lưu trên RAM)
+    void addToPlaylistLocal(string mediaId) {
         playlist.push_back(mediaId);
-        cout << "[System] Da them " << mediaId << " vao Playlist cua " << username << "!" << endl;
+    }
+
+    // Hàm này dùng khi user bấm nút trên app (Chỉ lưu trên RAM)
+    void addToPlaylist(string mediaId) {
+        playlist.push_back(mediaId);
+        
+        // ĐÃ XÓA dòng gọi FileManager ở đây để tránh lỗi vòng lặp!
+        // Việc gọi FileManager sẽ do file main.cpp hoặc giao diện Qt đảm nhận.
+        
+        cout << "[System] Da them " << mediaId << " vao Playlist tam thoi cua " << username << "!" << endl;
     }
 
     // Hàm in Playlist
